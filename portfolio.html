@@ -630,16 +630,50 @@
   .hero-extra-links{
     display:flex;
     flex-wrap:wrap;
-    gap:10px 20px;
-    margin-top:22px;
+    gap:12px;
+    margin-top:24px;
   }
   .hero-extra-links a{
-    color:#8fbaff;
-    font-size:.82rem;
+    display:inline-flex;
+    flex:1 1 210px;
+    min-height:58px;
+    align-items:center;
+    justify-content:center;
+    gap:10px;
+    padding:13px 18px;
+    border:1px solid rgba(49,136,255,.58);
+    border-radius:14px;
+    background:linear-gradient(135deg,rgba(49,136,255,.2),rgba(8,23,44,.95));
+    box-shadow:0 10px 28px rgba(0,75,210,.16),inset 0 1px rgba(255,255,255,.06);
+    color:#eaf3ff;
+    font-size:1rem;
+    font-weight:650;
+    line-height:1.35;
     text-decoration:none;
-    border-bottom:1px solid rgba(49,136,255,.35);
+    text-align:center;
+    transition:transform .2s ease,border-color .2s ease,background .2s ease,box-shadow .2s ease;
   }
-  .hero-extra-links a:hover{color:#fff;border-color:var(--teal);}
+  .hero-extra-links a::before{
+    content:'↗';
+    flex-shrink:0;
+    color:var(--teal);
+    font-size:1.15rem;
+  }
+  .hero-extra-links a:last-child{
+    border-color:rgba(36,199,245,.46);
+    background:linear-gradient(135deg,rgba(36,199,245,.12),rgba(8,23,44,.95));
+  }
+  .hero-extra-links a:hover{
+    transform:translateY(-3px);
+    border-color:var(--teal);
+    background:linear-gradient(135deg,rgba(49,136,255,.3),rgba(8,23,44,.98));
+    box-shadow:0 15px 34px rgba(0,91,255,.24),inset 0 1px rgba(255,255,255,.1);
+    color:#fff;
+  }
+  .hero-extra-links a:focus-visible{
+    outline:2px solid var(--teal);
+    outline-offset:3px;
+  }
   .hero-visual{
     position:relative;
     width:100%;
@@ -763,6 +797,7 @@
     .hero-copy{max-width:none;}
     .hero-visual{max-width:500px;justify-self:center;}
     .hero-title{font-size:clamp(2.8rem,13vw,4.2rem);}
+    .hero-extra-links a{flex-basis:100%;}
     section{margin-top:22px;padding:24px 20px;border-radius:18px;}
     .tracks,.projects-grid,.contact-card{grid-template-columns:1fr;}
     .cta{grid-column:auto;}
