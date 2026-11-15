@@ -454,6 +454,320 @@
     .bg-grid, body::before, body::after, .badge-frame, .name-block, .contact-card, .hero-line, .hero-sub, .availability::before{animation:none!important;}
     section{opacity:1;transform:none;transition:none;}
   }
+
+  :root{
+    --bg:#030a18;
+    --surface:#08172c;
+    --surface-alt:#0c1e37;
+    --line:rgba(91,156,255,.2);
+    --text:#f4f7ff;
+    --muted:#a6b4cc;
+    --gold:#3188ff;
+    --gold-dim:rgba(49,136,255,.32);
+    --teal:#24c7f5;
+  }
+  body{
+    min-height:100vh;
+    background:
+      radial-gradient(ellipse 42% 42% at 76% 32%, rgba(0,91,255,.2), transparent 70%),
+      radial-gradient(ellipse 34% 30% at 0% 100%, rgba(0,75,220,.15), transparent 72%),
+      var(--bg);
+    color:var(--text);
+  }
+  .bg-grid{
+    background-image:
+      linear-gradient(rgba(43,111,225,.09) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(43,111,225,.09) 1px, transparent 1px);
+    background-size:150px 150px;
+    mask-image:linear-gradient(to bottom, black 0%, rgba(0,0,0,.7) 75%, transparent 100%);
+    animation:none;
+  }
+  .topnav{
+    padding:13px clamp(20px,5vw,72px);
+    background:rgba(3,10,24,.88);
+    border-bottom:1px solid rgba(91,156,255,.16);
+    box-shadow:0 10px 30px rgba(0,0,0,.18);
+  }
+  .brand{
+    font-family:'Inter',sans-serif;
+    font-weight:700;
+    color:var(--text);
+  }
+  .brand span{color:var(--gold);}
+  .brand img{border-color:var(--gold-dim);}
+  .nav-links a{
+    color:var(--muted);
+    border-radius:999px;
+  }
+  .nav-links a:hover,.nav-links a.active{
+    color:#fff;
+    background:rgba(49,136,255,.13);
+  }
+  .nav-toggle{
+    border-color:var(--line);
+    background:var(--surface);
+  }
+  .nav-toggle span,.nav-toggle::before,.nav-toggle::after{background:var(--text);}
+  .layout{
+    display:block;
+    min-height:0;
+  }
+  main{
+    width:min(100%,1360px);
+    max-width:none;
+    margin:0 auto;
+    padding:0 clamp(22px,6vw,84px) 80px;
+  }
+  .hero{
+    position:relative;
+    display:grid;
+    grid-template-columns:minmax(0,1fr) minmax(320px,.92fr);
+    align-items:center;
+    gap:clamp(36px,7vw,100px);
+    min-height:calc(100vh - 66px);
+    padding:55px 0 70px;
+    scroll-margin-top:90px;
+  }
+  .hero-copy{max-width:620px;}
+  .hero-mark{
+    margin-bottom:12px;
+    color:var(--gold);
+    font:700 2.4rem/1 'IBM Plex Mono',monospace;
+    letter-spacing:-.12em;
+  }
+  .hero-greeting{
+    color:#d5def0;
+    font-size:clamp(1.7rem,3vw,2.4rem);
+    line-height:1.15;
+  }
+  .hero-title{
+    margin-top:5px;
+    font-family:'Inter',sans-serif;
+    font-size:clamp(3rem,6.3vw,5.3rem);
+    font-weight:800;
+    line-height:1.04;
+    letter-spacing:-.065em;
+  }
+  .hero-title span{
+    color:var(--gold);
+    text-shadow:0 0 34px rgba(49,136,255,.28);
+  }
+  .hero-copy .role{
+    max-width:46ch;
+    margin-top:15px;
+    color:#c1cde1;
+    font-size:clamp(1rem,1.5vw,1.2rem);
+  }
+  .hero-rule{
+    width:112px;
+    height:2px;
+    margin:20px 0 15px;
+    background:linear-gradient(90deg,var(--gold),transparent);
+  }
+  .hero-sub{
+    max-width:55ch;
+    margin:0;
+    color:var(--muted);
+    font-size:1.02rem;
+  }
+  .hero-socials{
+    display:flex;
+    flex-wrap:wrap;
+    gap:12px;
+    margin-top:24px;
+  }
+  .hero-socials a{
+    display:grid;
+    place-items:center;
+    width:46px;
+    height:46px;
+    border:1px solid rgba(49,136,255,.55);
+    border-radius:50%;
+    background:rgba(6,23,46,.7);
+    color:#dceaff;
+    font:600 13px 'IBM Plex Mono',monospace;
+    text-decoration:none;
+    transition:background .2s ease,border-color .2s ease,transform .2s ease;
+  }
+  .hero-socials a:hover{
+    transform:translateY(-3px);
+    border-color:var(--teal);
+    background:rgba(49,136,255,.18);
+  }
+  .hero-actions{
+    display:flex;
+    flex-wrap:wrap;
+    gap:12px;
+    margin-top:25px;
+  }
+  .hero-primary,.hero-secondary{
+    display:inline-flex;
+    min-height:49px;
+    align-items:center;
+    justify-content:center;
+    gap:10px;
+    padding:0 21px;
+    border:1px solid var(--gold);
+    border-radius:999px;
+    font-weight:600;
+    text-decoration:none;
+    transition:transform .2s ease,box-shadow .2s ease,background .2s ease;
+  }
+  .hero-primary{
+    background:linear-gradient(110deg,#168fff,#0754ed);
+    color:#fff;
+    box-shadow:0 10px 30px rgba(0,91,255,.2);
+  }
+  .hero-secondary{
+    background:rgba(3,10,24,.45);
+    color:#e7efff;
+  }
+  .hero-primary:hover,.hero-secondary:hover{
+    transform:translateY(-2px);
+    box-shadow:0 12px 30px rgba(0,91,255,.25);
+  }
+  .hero-secondary:hover{background:rgba(49,136,255,.12);}
+  .hero-extra-links{
+    display:flex;
+    flex-wrap:wrap;
+    gap:10px 20px;
+    margin-top:22px;
+  }
+  .hero-extra-links a{
+    color:#8fbaff;
+    font-size:.82rem;
+    text-decoration:none;
+    border-bottom:1px solid rgba(49,136,255,.35);
+  }
+  .hero-extra-links a:hover{color:#fff;border-color:var(--teal);}
+  .hero-visual{
+    position:relative;
+    width:100%;
+    max-width:510px;
+    justify-self:end;
+  }
+  .hero-visual::before{
+    content:'';
+    position:absolute;
+    z-index:-1;
+    inset:12% 8%;
+    border-radius:50%;
+    background:rgba(0,99,255,.32);
+    filter:blur(70px);
+  }
+  .photo-wrap{
+    aspect-ratio:1;
+    border:1px solid rgba(49,136,255,.55);
+    border-radius:28px;
+    background:#031022;
+    box-shadow:0 0 0 8px rgba(49,136,255,.055),0 25px 80px rgba(0,71,190,.28);
+  }
+  .photo-wrap img{
+    width:100%;
+    height:100%;
+    max-height:none;
+    object-fit:contain;
+    object-position:center;
+  }
+  .id-row{
+    margin-top:15px;
+    color:#8ebaff;
+  }
+  section{
+    margin-top:30px;
+    padding:clamp(24px,4vw,42px);
+    border:1px solid var(--line);
+    border-radius:22px;
+    background:linear-gradient(145deg,rgba(10,27,51,.88),rgba(5,16,33,.88));
+    box-shadow:0 22px 65px rgba(0,0,0,.13);
+  }
+  .field-label{
+    color:#73adff;
+    border-color:var(--gold-dim);
+    border-radius:999px;
+  }
+  h2.section-title{
+    font-family:'Inter',sans-serif;
+    font-size:clamp(1.6rem,3vw,2.1rem);
+    font-weight:700;
+  }
+  .about-text,.track-card p,.project-card p{color:var(--muted);}
+  .edu-card,.track-card,.project-card{
+    border:1px solid var(--line);
+    border-radius:16px;
+    background:rgba(12,30,55,.8);
+  }
+  .edu-card{border-left:3px solid var(--gold);}
+  .edu-card .deg,.track-card h3,.project-card h3{color:var(--text);}
+  .edu-card .sub,.cert-item .issuer{color:var(--muted);}
+  .chip,.chip[class*="skill-"]{
+    color:#cfe0ff;
+    background:rgba(33,94,177,.13);
+    border-color:rgba(91,156,255,.25);
+    border-radius:999px;
+  }
+  .chip:hover{border-color:var(--gold);color:#fff;}
+  .track-card .tag,.project-card .tag{color:#69bdff;}
+  .track-card a,.field .v a{color:#a7cbff;}
+  .field{
+    border-color:var(--line);
+  }
+  .field .k,.cert-item .stamp{color:#78b3ff;}
+  .field .v a{border-color:var(--gold-dim);}
+  .field .v a:hover{color:#fff;border-color:var(--teal);}
+  .contact-card{
+    display:grid;
+    grid-template-columns:repeat(2,minmax(0,1fr));
+    gap:0 28px;
+    margin-top:0;
+    padding-top:0;
+  }
+  .contact-card .field{min-width:0;}
+  .contact-card .field .v{min-width:0;overflow-wrap:anywhere;}
+  .cta{
+    grid-column:1/-1;
+    justify-self:start;
+    border-radius:999px;
+    background:linear-gradient(110deg,#168fff,#0754ed);
+    color:#fff;
+  }
+  .cert-item{border-color:var(--line);}
+  .cert-item:hover{background:rgba(49,136,255,.08);}
+  .cert-item .stamp{
+    border-color:var(--gold-dim);
+    border-radius:999px;
+  }
+  footer{
+    border-color:var(--line);
+    color:var(--muted);
+  }
+  .scroll-progress{
+    background:linear-gradient(90deg,#168fff,#24c7f5);
+    box-shadow:0 1px 10px rgba(49,136,255,.5);
+  }
+  @media (max-width:1000px){
+    .hero{grid-template-columns:minmax(0,1fr) minmax(280px,.8fr);gap:34px;}
+    .projects-grid{grid-template-columns:repeat(2,minmax(0,1fr));}
+  }
+  @media (max-width:760px){
+    .topnav{padding:12px 20px;}
+    .nav-links{background:#07162b;border-color:var(--line);}
+    .nav-links a{border-color:var(--line);}
+    main{padding:0 20px 56px;}
+    .hero{
+      grid-template-columns:1fr;
+      gap:30px;
+      min-height:0;
+      padding:48px 0 38px;
+    }
+    .hero-copy{max-width:none;}
+    .hero-visual{max-width:500px;justify-self:center;}
+    .hero-title{font-size:clamp(2.8rem,13vw,4.2rem);}
+    section{margin-top:22px;padding:24px 20px;border-radius:18px;}
+    .tracks,.projects-grid,.contact-card{grid-template-columns:1fr;}
+    .cta{grid-column:auto;}
+    footer{gap:12px;align-items:flex-start;flex-direction:column;}
+  }
 </style>
 </head>
 <body>
@@ -473,58 +787,47 @@
     <a href="#experience">Focus Area</a>
     <a href="#projects">Projects</a>
     <a href="#certifications">Certification</a>
+    <a href="#contact">Contact</a>
   </div>
   <div class="nav-toggle" id="navToggle" aria-label="Toggle menu" role="button" tabindex="0"><span></span></div>
 </nav>
 
 <div class="layout">
 
-  <aside class="sidebar">
-    <div class="badge-frame">
-      <div class="photo-wrap">
-        <img src="images/profile.png" alt="Ankush Kumar">
-      </div>
-      <div class="id-row">
-        <span>ID · AK-2026</span>
-        <span>DEV / AI-ML</span>
-      </div>
-    </div>
-
-    <div class="name-block">
-      <div class="eyebrow">Access Profile</div>
-      <h1 class="name">Ankush<br>Kumar</h1>
-      <p class="role">Full-Stack Developer &amp; AI/ML Enthusiast — building AI-powered apps and modern web experiences.</p>
-      <a class="founder-btn" href="https://softversetech.vercel.app/" target="_blank" rel="noopener noreferrer">Founder Of Softverse Technologies</a>
-      <a class="founder-btn" href="https://ankushdev-eta.vercel.app/" target="_blank" rel="noopener noreferrer">My Achievement</a>
-
-    </div>
-
-    <div class="contact-card">
-      <div class="field">
-        <span class="k">GitHub</span>
-        <span class="v"><a href="https://github.com/codewithchiku0250" target="_blank" rel="noopener">codewithchiku0250</a></span>
-      </div>
-      <div class="field">
-        <span class="k">LinkedIn</span>
-        <span class="v"><a href="https://www.linkedin.com/in/ankush-kumar" target="_blank" rel="noopener">ankush-kumar</a></span>
-      </div>
-      <div class="field">
-        <span class="k">Email</span>
-        <span class="v"><a href="mailto:kumarankush86116@gmail.com">kumarankush86116@gmail.com</a></span>
-      </div>
-      <div class="field">
-        <span class="k">Web</span>
-        <span class="v"><a href="https://my-portfolio-in-com.vercel.app/" target="_blank" rel="noopener">my-portfolio-in-com.vercel.app</a></span>
-      </div>
-      <a class="cta" href="mailto:kumarankush86116@gmail.com">Get in touch →</a>
-    </div>
-  </aside>
-
   <main>
-    <div class="hero-line" id="home">
-      Turning ideas into <span class="accent">intelligent</span>, working software.
+    <div class="hero" id="home">
+      <div class="hero-copy">
+        <div class="hero-mark" aria-hidden="true">//</div>
+        <p class="hero-greeting">Hi, I’m</p>
+        <h1 class="hero-title">Ankush <span>Kumar</span></h1>
+        <p class="role">Full-Stack Developer &amp; AI/ML Enthusiast — building AI-powered apps and modern web experiences.</p>
+        <div class="hero-rule" aria-hidden="true"></div>
+        <p class="hero-sub">Passionate developer focused on building AI-powered apps, modern websites, and smart mobile applications — with a growing focus on Full Stack Development, applied AI tools, and real-world tech projects.</p>
+        <div class="hero-socials" aria-label="Social links">
+          <a href="https://github.com/codewithchiku0250" target="_blank" rel="noopener noreferrer" aria-label="GitHub">GH</a>
+          <a href="https://www.linkedin.com/in/ankush-kumar" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">in</a>
+          <a href="mailto:kumarankush86116@gmail.com" aria-label="Email">@</a>
+          <a href="https://my-portfolio-in-com.vercel.app/" target="_blank" rel="noopener noreferrer" aria-label="Website">↗</a>
+        </div>
+        <div class="hero-actions">
+          <a class="hero-primary" href="#projects">View My Work <span aria-hidden="true">→</span></a>
+          <a class="hero-secondary" href="mailto:kumarankush86116@gmail.com">Get in touch</a>
+        </div>
+        <div class="hero-extra-links">
+          <a href="https://softversetech.vercel.app/" target="_blank" rel="noopener noreferrer">Founder Of Softverse Technologies</a>
+          <a href="https://ankushdev-eta.vercel.app/" target="_blank" rel="noopener noreferrer">My Achievement</a>
+        </div>
+      </div>
+      <div class="hero-visual">
+        <div class="photo-wrap">
+          <img src="images/profile.png" alt="Ankush Kumar">
+        </div>
+        <div class="id-row">
+          <span>ID · AK-2026</span>
+          <span>DEV / AI-ML</span>
+        </div>
+      </div>
     </div>
-    <p class="hero-sub">Passionate developer focused on building AI-powered apps, modern websites, and smart mobile applications — with a growing focus on Full Stack Development, applied AI tools, and real-world tech projects.</p>
 
     <section id="about">
       <div class="field-label">Field · About</div>
@@ -687,6 +990,30 @@
           </div>
           <span class="stamp">Govt.</span>
         </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="field-label">Field · Contact</div>
+      <h2 class="section-title">Let’s connect</h2>
+      <div class="contact-card">
+        <div class="field">
+          <span class="k">GitHub</span>
+          <span class="v"><a href="https://github.com/codewithchiku0250" target="_blank" rel="noopener noreferrer">codewithchiku0250</a></span>
+        </div>
+        <div class="field">
+          <span class="k">LinkedIn</span>
+          <span class="v"><a href="https://www.linkedin.com/in/ankush-kumar" target="_blank" rel="noopener noreferrer">ankush-kumar</a></span>
+        </div>
+        <div class="field">
+          <span class="k">Email</span>
+          <span class="v"><a href="mailto:kumarankush86116@gmail.com">kumarankush86116@gmail.com</a></span>
+        </div>
+        <div class="field">
+          <span class="k">Web</span>
+          <span class="v"><a href="https://my-portfolio-in-com.vercel.app/" target="_blank" rel="noopener noreferrer">my-portfolio-in-com.vercel.app</a></span>
+        </div>
+        <a class="cta" href="mailto:kumarankush86116@gmail.com">Get in touch →</a>
       </div>
     </section>
 
